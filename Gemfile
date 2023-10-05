@@ -77,3 +77,6 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+# Faker gem for generating fake data
+gem 'faker'
