@@ -2,6 +2,19 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :publisher
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_title_and_author_and_publisher,
+  against: [ :title, :isbn ],
+  associated_against: {
+    author: [ :first_name, :last_name ],
+    publisher: [:name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
+
   # Validations
   validates :title, presence: true
   validates :author, presence: true

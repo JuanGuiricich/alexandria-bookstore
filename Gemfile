@@ -80,3 +80,6 @@ end
 
 # Faker gem for generating fake data
 gem 'faker'
+
+# Pg Search gem for search functionality
+gem "pg_search"
