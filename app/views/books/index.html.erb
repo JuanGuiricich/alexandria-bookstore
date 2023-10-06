@@ -1,25 +1,17 @@
-<div class="container" data-controller="book-card">
+<div class="container" data-controller="search-books">
   <div class="container">
-    <%= form_with url: books_path, method: :get, html: { class: 'mb-4' } do |f| %>
+    <%= form_with url: books_path, method: :get, html: {class: 'mb-4', data: {search_books_target: "form"}} do |f| %>
       <%= f.text_field :query,
                         class: "form-control",
                         placeholder: 'Type a Book title',
-                        value: params[:query]
+                        value: params[:query],
+                        data: {
+                          search_books_target: "input",
+                          action: "keyup->search-books#search"
+                          }
                         %>
       <%= f.submit "Search", class: "btn btn-primary" %>
       <% end %>
   </div>
-  <div data-search-books-target="list" class="container row gap-4 justify-content-center">
-    <% @books.each do |book| %>
-      <div data-book-card-target="content" class="card col-4" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= book.title %></h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary"><%= "#{book.author.first_name} #{book.author.last_name}" %></h6>
-          <p class="card-text"><%= book.publisher.name %></p>
-          <p class="card-text"><%= book.review %></p>
-          <a href="#" class="card-link"><%= book.price %></a>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'list', books: @books %>
 </div>
