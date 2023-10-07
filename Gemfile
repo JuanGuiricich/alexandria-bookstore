@@ -83,3 +83,9 @@ gem 'faker'
 
 # Pg Search gem for search functionality
 gem "pg_search"
+
+# # Pundit for Authorization
+# gem 'pundit'
+
+# # Administrate for Admin Dashboard
+# gem "administrate"

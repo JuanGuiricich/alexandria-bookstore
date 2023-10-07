@@ -5,5 +5,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :books
+  get 'books/index', to: 'books#index', as: 'books'
+  namespace :admin do
+    resources :books
+    resources :authors
+    resources :publishers
+    get 'dashboard', to: 'admin#dashboard'
+  end
 end

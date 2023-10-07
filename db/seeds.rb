@@ -43,7 +43,7 @@ puts "Creating books..."
   )
 end
 
-book = Book.create(
+book = Book.new(
   title: "titulo",
   isbn: "1234",
   date_of_publication: "2022-02-01",
@@ -52,6 +52,13 @@ book = Book.create(
   publisher_id: 4,
   price: 50.0
 )
+
 book.save!
+
+puts "Creating Admin User..."
+User.create(email: "admin@admin.com", password: "123456", admin: true)
+
+puts "Creating Regular User..."
+User.create(email: "juan@gmail.com", password: "123456")
 
 puts "Done!"
