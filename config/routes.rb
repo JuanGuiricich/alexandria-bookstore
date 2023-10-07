@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get 'books/index', to: 'books#index', as: 'books'
-  namespace :admin do
+  get 'dashboard', to: 'dashboard#dashboard'
+  resources :dashboard do
     resources :books
     resources :authors
     resources :publishers
-    get 'dashboard', to: 'admin#dashboard'
   end
 end
