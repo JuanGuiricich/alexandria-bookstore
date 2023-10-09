@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 mb-3">
+      <%= simple_form_for(@book) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :isbn %>
+        <%= f.input :date_of_publication %>
+        <%= f.input :review %>
+        <%= f.input :price %>
+        <%= f.input :publisher_id %>
+        <%= f.input :author_id %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

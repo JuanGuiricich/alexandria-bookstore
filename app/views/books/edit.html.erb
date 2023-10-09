@@ -1,0 +1,17 @@
+
+<div class="container">
+  <h3>Edit <%= @book.title %></h3>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for(@book) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :isbn %>
+        <%= f.input :date_of_publication %>
+        <%= f.input :review %>
+        <%= f.input :price %>
+        <%= f.submit %>
+      <% end %>
+      <%= link_to "Delete", dashboard_books_path(@book), method: :destroy, data: { turbo_confirm: "Are you sure you want to remove this book?" }, class: 'text-danger' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<h1>Create new author</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 mb-3">
+      <%= simple_form_for(@author) do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :date_of_birth %>
+        <%= f.input :about %>
+        <%= f.input :nationality %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

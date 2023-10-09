@@ -1,1 +1,37 @@
 <h1>Welcome to the Admin Dashboard!</h1>
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Books</div>
+          <div class="card-body">
+            <h5 class="card-title">Manage books</h5>
+            <p class="card-text">Add, edit, and delete books.</p>
+            <%= link_to "Manage Books", dashboard_books_path, class: "btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Authors</div>
+          <div class="card-body">
+            <h5 class="card-title">Manage Authors</h5>
+            <p class="card-text">Add, edit, and delete Authors.</p>
+            <%= link_to "Manage Authors", authors_path, class: "btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Publishers</div>
+          <div class="card-body">
+            <h5 class="card-title">Manage Publishers</h5>
+            <p class="card-text">Add, edit, and delete Publishers.</p>
+            <%= link_to "Manage Publishers", publishers_path, class: "btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

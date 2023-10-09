@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="container-show">
+    <h1>Details for Book id: <%= @book.id %></h1>
+    <div class="item-details">
+        <p><strong>Title:</strong> <%= @book.title %></p>
+        <p><strong>ISBN:</strong> <%= @book.isbn %></p>
+        <p><strong>Date of Publication:</strong> <%= @book.date_of_publication %></p>
+        <p><strong>Review:</strong> <%= @book.review %></p>
+        <p><strong>Price:</strong> <%= @book.price %></p>
+    </div>
+    <a class="btn btn-flat" href="<%= dashboard_books_path %>">Back to List</a>
+  </div>
+</div>

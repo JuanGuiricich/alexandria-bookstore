@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Books</h1>
+  <%= link_to 'Back to dashboard', dashboard_path %>
+  <%= link_to 'New Book', new_book_path %>
+  <table class="border">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Date of Publication</th>
+        <th>Review</th>
+        <th>Price</th>
+        <th>Publisher</th>
+        <th>Author</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.isbn %></td>
+          <td><%= book.date_of_publication %></td>
+          <td><%= book.review %></td>
+          <td><%= book.price %></td>
+          <td><%= book.publisher.name %></td>
+          <td><%= book.author.first_name %> <%= book.author.last_name %> (Age: <%= Time.now.year - book.author.date_of_birth.year %>)</td>
+          <td>
+            <%= link_to 'Show', book %>
+            <%= link_to 'Edit', edit_book_path(book) %>
+            <%= button_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
