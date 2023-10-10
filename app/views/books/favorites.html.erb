@@ -1,5 +1,5 @@
-<div data-search-books-target="list" class="d-flex flex-wrap gap-4 justify-content-center">
-  <% books.each do |book| %>
+<div data-search-books-target="list" class="d-flex flex-wrap gap-4 justify-content-center mt-4">
+  <% @favorite_books.each do |book| %>
     <div class="d-flex card text-center col-3">
       <div class="card-header">
         Author: <%= "#{book.author.first_name} #{book.author.last_name}" %>
@@ -7,11 +7,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= book.title %></h5>
         <p class="card-text">Published by:<%= book.publisher.name %></p>
-        <% if user_signed_in? %>
-          <%= button_to "Add to Favorites", add_to_favorites_book_path(book), method: :post, class: "btn btn-flat", remote: true, data: { confirm: 'Book added to favorites. View your favorites now?' } %>
-        <% else %>
-          <%= button_to "Log in to add to Favorites", new_user_session_path, class: "btn btn-flat" %>
-        <% end %>
+          <%= button_to "Remove from Favorites", remove_favorites_book_path(book), method: :post, class: "btn btn-danger", remote: true %>
       </div>
       <div class="card-footer text-muted d-flex justify-content-center align-items-center">
         Rating: <% book.review.times do %>
@@ -21,6 +17,6 @@
     </div>
   <% end %>
 </div>
-<div class="pagination justify-content-center m-4">
-  <%= paginate books %>
+<div class="container d-flex justify-content-center mt-5">
+  <%= link_to "Back to All Books", books_path, class: "btn btn-flat" %>
 </div>

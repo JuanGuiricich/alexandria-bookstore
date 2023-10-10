@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
-  before_action :authorize_admin, except: [:index]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :add_to_favorites]
+  before_action :authorize_admin, except: [:index, :favorites, :add_to_favorites, :remove_favorites ]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :add_to_favorites, :remove_favorites]
 
   def index
     if params[:query].present?
@@ -9,6 +9,7 @@ class BooksController < ApplicationController
     else
       @books = Book.all
     end
+    @books = @books.page(params[:page]).per(10)
     respond_to do |format|
       format.html
       format.text { render partial: 'list', locals: { books: @books }, formats: [:html] }
@@ -39,6 +40,20 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     redirect_to dashboard_books_path
+  end
+
+  def add_to_favorites
+    current_user.favorite(@book) if user_signed_in?
+    redirect_to favorites_books_path
+  end
+
+  def remove_favorites
+    current_user.unfavorite(@book) if user_signed_in?
+    redirect_to favorites_books_path
+  end
+
+  def favorites
+    @favorite_books = current_user.all_favorited
   end
 
   private

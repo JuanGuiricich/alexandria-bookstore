@@ -1,0 +1,20 @@
+.call-to-action-container {
+  background-color: #bc6c25;
+  color: #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 300px;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.call-to-action-container button {
+  border: 1px solid #E5E7EB;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #bc6c25;
+  font-size: 18px;
+  font-weight: 700;
+}

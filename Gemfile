@@ -84,8 +84,8 @@ gem 'faker'
 # Pg Search gem for search functionality
 gem "pg_search"
 
-# # Pundit for Authorization
-# gem 'pundit'
+# Kaminari gem for pagination
+gem 'kaminari'
 
-# # Administrate for Admin Dashboard
-# gem "administrate"
+# acts_as_favoritor gem for favoriting functionality
+gem 'acts_as_favoritor'

@@ -1,7 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.egypttoursportal.com/images/2017/11/Alexandria-Library-History-Egypt-Tours-Portal.jpg);">
   <div class="container">
     <h1>Welcome to the great library of all times!</h1>
-    <p>Look into our extended selection of books, you surely find something that suits you</p>
-    <a class="btn btn-flat" href="#">Search for books</a>
+    <p>Look into our extended selection of books, you'll surely find something that suits you</p>
+    <%= link_to "Search for books", books_path, class: "btn btn-flat" %>
   </div>
 </div>
+<div class="quote-section">
+  <div class="quote-container">
+      <p class="quote-text">This is an inspiring quote, or a testimonial from a customer. Maybe it's just filling up space, or maybe people will actually read it. Who knows? All I know is that it looks nice.</p>
+      <p class="quote-author">-Juan, web developer</p>
+  </div>
+</div>
+<div class="call-to-action-section">
+    <div class="call-to-action-container">
+        <div class="call-to-action-text">
+            <h2>Call to action! It's time!</h2>
+            <p>Sign up for our product by clicking that button right over there</p>
+        </div>
+        <button>Sign Up</button>
+    </div>
+</div>
+<footer>
+    <div class="footer-content">
+        <p>Made with love by JG Dev for the IT Crowd challenge</p>
+    </div>
+</footer>

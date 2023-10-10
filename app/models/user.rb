@@ -7,4 +7,5 @@ class User < ApplicationRecord
   def admin?
     admin
   end
+  acts_as_favoritor
 end

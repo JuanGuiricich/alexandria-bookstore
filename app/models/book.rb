@@ -14,7 +14,11 @@ class Book < ApplicationRecord
     tsearch: { prefix: true }
   }
 
-
+  scope :filter_by_title, ->(title) { where("title ILIKE ?", "%#{title}%") }
+  scope :filter_by_author, ->(author_name) { joins(:author).where("authors.first_name ILIKE ? OR authors.last_name ILIKE ?", "%#{author_name}%", "%#{author_name}%") }
+  scope :filter_by_price_range, ->(min_price, max_price) { where(price: min_price..max_price) }
+  
+  acts_as_favoritable
   # Validations
   validates :title, presence: true
   validates :author, presence: true

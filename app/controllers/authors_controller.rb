@@ -1,5 +1,4 @@
 class AuthorsController < ApplicationController
-  before_action :authenticate_user!
   before_action :authorize_admin
   before_action :set_author, only: %i[ show edit update destroy ]
 

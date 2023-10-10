@@ -1,5 +1,4 @@
 class PublishersController < ApplicationController
-  before_action :authenticate_user!
   before_action :authorize_admin
   before_action :set_publisher, only: [:show, :edit, :update, :destroy]
 
