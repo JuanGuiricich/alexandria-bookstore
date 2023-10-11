@@ -16,10 +16,13 @@ in order to log in as an admin use the following user:
 
 
 email: admin@admin.com
+
 password: 123456
 
 to log in as a user, you can create a new user or use the following user:
+
 email: juan@gmail.com
+
 password: 123456
 
 ## Run Locally
