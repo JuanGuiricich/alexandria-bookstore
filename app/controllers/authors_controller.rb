@@ -16,15 +16,10 @@ class AuthorsController < ApplicationController
   end
 
   def index
-    @authors = Author.all
     if params[:query].present?
       @authors = Author.search_author(params[:query])
     else
       @authors = Author.all
-    end
-    respond_to do |format|
-      format.html
-      format.text { render partial: 'list', locals: { authors: @authors }, formats: [:html] }
     end
   end
 

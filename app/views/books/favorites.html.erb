@@ -1,6 +1,6 @@
 <div data-search-books-target="list" class="d-flex flex-wrap gap-4 justify-content-center mt-4">
   <% @favorite_books.each do |book| %>
-    <div class="d-flex card text-center col-3">
+    <div class="d-flex card text-center col-sm-1 col-md-3">
       <div class="card-header">
         Author: <%= "#{book.author.first_name} #{book.author.last_name}" %>
       </div>

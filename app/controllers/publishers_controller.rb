@@ -17,7 +17,11 @@ class PublishersController < ApplicationController
   end
 
   def index
-    @publishers = Publisher.all
+    if params[:query].present?
+      @publishers = Publisher.search_publisher(params[:query])
+    else
+      @publishers = Publisher.all
+    end
   end
 
   def edit

@@ -2,6 +2,18 @@
   <h1>Books</h1>
   <%= link_to 'Back to dashboard', dashboard_path %>
   <%= link_to 'New Book', new_book_path %>
+    <div class="container">
+      <div class="container">
+        <%= form_with url: dashboard_books_path, method: :get, html: {class: 'm-4 d-flex gap-3' } do |f| %>
+          <%= f.text_field :query,
+                            class: "form-control",
+                            placeholder: 'Search for a Book',
+                            value: params[:query]
+                            %>
+          <%= f.submit "Search", class: "btn btn-flat" %>
+          <% end %>
+      </div>
+  </div>
   <table class="border">
     <thead>
       <tr>

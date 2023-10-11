@@ -8,3 +8,27 @@
     <a class="btn btn-flat" href="<%= publishers_path %>">Back to List</a>
   </div>
 </div>
+<div class="d-flex flex-wrap gap-4 justify-content-center mb-5">
+  <% @publisher.books.each do |book| %>
+    <div class="d-flex card text-center col-sm-1 col-md-3">
+      <div class="card-header">
+        Author: <%= "#{book.author.first_name} #{book.author.last_name}" %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= book.title %></h5>
+        <p class="card-text">Published by: <%= book.publisher.name %></p>
+        <p>Price $<%= book.price %></p>
+        <% if user_signed_in? %>
+          <%= button_to "Add to Favorites", add_to_favorites_book_path(book), method: :post, class: "btn btn-flat", remote: true, data: { confirm: 'Book added to favorites. View your favorites now?' } %>
+        <% else %>
+          <%= button_to "Log in to add to Favorites", new_user_session_path, class: "btn btn-flat" %>
+        <% end %>
+      </div>
+      <div class="card-footer text-muted d-flex justify-content-center align-items-center">
+        Rating: <% book.review.times do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

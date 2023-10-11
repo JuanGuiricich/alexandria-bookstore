@@ -89,3 +89,13 @@ gem 'kaminari'
 
 # acts_as_favoritor gem for favoriting functionality
 gem 'acts_as_favoritor'
+
+# Initials Avatar gem for generating user avatars
+gem 'initials'
+
+# Sidekiq gem for background jobs
+gem 'sidekiq'
+gem "sidekiq-failures", "~> 1.0"
+
+# pry gem for debugging
+gem 'pry'

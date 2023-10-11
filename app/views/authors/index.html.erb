@@ -4,7 +4,7 @@
   <%= link_to 'New Author', new_author_path %>
   <div class="container">
     <div class="container">
-      <%= form_with url: authors_path, method: :get, html: {class: 'mb-4' } do |f| %>
+      <%= form_with url: authors_path, method: :get, html: {class: 'm-4 d-flex gap-3' } do |f| %>
         <%= f.text_field :query,
                           class: "form-control",
                           placeholder: 'Search for an author',
@@ -12,8 +12,8 @@
                           %>
         <%= f.submit "Search", class: "btn btn-flat" %>
         <% end %>
-    </div>
   </div>
+</div>
   <table class="border">
     <thead>
       <tr>
@@ -34,7 +34,7 @@
           <td><%= author.date_of_birth %></td>
           <td><%= author.about %></td>
           <td><%= author.nationality %></td>
-          <td><%= author.books.count %></td>
+          <td><%= link_to author.books.count, author_path(author) %></td>
           <td>
             <%= link_to 'Show', author %>
             <%= link_to 'Edit', edit_author_path(author) %>

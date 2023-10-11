@@ -1,5 +1,5 @@
-<h1>Welcome to the Admin Dashboard!</h1>
-<div class="container">
+<h1 class="text-center mt-4">Welcome to the Admin Dashboard!</h1>
+<div class="container mt-5">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -30,6 +30,34 @@
             <p class="card-text">Add, edit, and delete Publishers.</p>
             <%= link_to "Manage Publishers", publishers_path, class: "btn btn-flat" %>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4 justify-content-center align-items-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Update Book Prices</div>
+        <div class="card-body">
+          <h5 class="card-title">Update book prices for a publisher</h5>
+          <p class="card-text">
+            Select a publisher, choose an action, and enter a percentage.
+          </p>
+            <%= simple_form_for :book_price_update, url: dashboard_update_book_prices_path, method: :post do |f| %>
+              <div class="form-group">
+                <%= f.label :publisher_id, 'Select Publisher' %>
+                <%= f.select :publisher_id, options_for_select(Publisher.all.map { |p| [p.name, p.id] }), { prompt: 'Select a Publisher' }, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :action, 'Select Action' %>
+                <%= f.select :action, [['Increase', 'increase'], ['Decrease', 'decrease']], { prompt: 'Select an Action' }, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.input :percentage, step: 0.01, class: 'form-control' %>
+              </div>
+              <%= f.submit 'Update Prices', class: 'btn btn-flat' %>
+            <% end %>
         </div>
       </div>
     </div>

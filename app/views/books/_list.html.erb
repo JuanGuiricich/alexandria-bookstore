@@ -1,12 +1,13 @@
 <div data-search-books-target="list" class="d-flex flex-wrap gap-4 justify-content-center">
   <% books.each do |book| %>
-    <div class="d-flex card text-center col-3">
+    <div class="d-flex card text-center col-sm-1 col-md-3">
       <div class="card-header">
         Author: <%= "#{book.author.first_name} #{book.author.last_name}" %>
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= book.title %></h5>
-        <p class="card-text">Published by:<%= book.publisher.name %></p>
+        <p class="card-text">Published by: <%= book.publisher.name %></p>
+        <p>Price $<%= book.price %></p>
         <% if user_signed_in? %>
           <%= button_to "Add to Favorites", add_to_favorites_book_path(book), method: :post, class: "btn btn-flat", remote: true, data: { confirm: 'Book added to favorites. View your favorites now?' } %>
         <% else %>
@@ -20,7 +21,4 @@
       </div>
     </div>
   <% end %>
-</div>
-<div class="pagination justify-content-center m-4">
-  <%= paginate books %>
 </div>
