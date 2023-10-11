@@ -12,6 +12,16 @@ you can check the live project here:
 
 [Alexandria Bookstore](https://alexandria-bookstore-64efd0d92505.herokuapp.com/)
 
+in order to log in as an admin use the following user:
+
+
+email: admin@admin.com
+password: 123456
+
+to log in as a user, you can create a new user or use the following user:
+email: juan@gmail.com
+password: 123456
+
 ## Run Locally
 
 In order to run this app locally, be sure to clone the repository to your computer
