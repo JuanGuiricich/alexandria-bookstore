@@ -14,6 +14,7 @@ you can check the live project here:
 
 in order to log in as an admin use the following user:
 
+You will see the admin dashboard in the dropdown menu if you click on your profile.
 
 email: admin@admin.com
 
